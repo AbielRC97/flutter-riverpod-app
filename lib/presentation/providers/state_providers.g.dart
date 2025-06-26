@@ -6,11 +6,11 @@ part of 'state_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'b3a11618e0b3fffba787a3bf422445622a5016b1';
+String _$counterHash() => r'7f90cf4deb60e7476f9e28508023752d0cf8a149';
 
 /// See also [Counter].
 @ProviderFor(Counter)
-final counterProvider = AutoDisposeNotifierProvider<Counter, int>.internal(
+final counterProvider = NotifierProvider<Counter, int>.internal(
   Counter.new,
   name: r'counterProvider',
   debugGetCreateSourceHash:
@@ -19,12 +19,12 @@ final counterProvider = AutoDisposeNotifierProvider<Counter, int>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$Counter = AutoDisposeNotifier<int>;
-String _$darkModeHash() => r'ea8916d91f2f2f287392ff9788198e6bc9345cef';
+typedef _$Counter = Notifier<int>;
+String _$darkModeHash() => r'56c9ca52720c46266343ecafe1e7be01175a7ccc';
 
 /// See also [DarkMode].
 @ProviderFor(DarkMode)
-final darkModeProvider = AutoDisposeNotifierProvider<DarkMode, bool>.internal(
+final darkModeProvider = NotifierProvider<DarkMode, bool>.internal(
   DarkMode.new,
   name: r'darkModeProvider',
   debugGetCreateSourceHash:
@@ -33,12 +33,12 @@ final darkModeProvider = AutoDisposeNotifierProvider<DarkMode, bool>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$DarkMode = AutoDisposeNotifier<bool>;
-String _$userNameHash() => r'5e6710d2922bccb7dfdbedc8334099460a45ed75';
+typedef _$DarkMode = Notifier<bool>;
+String _$userNameHash() => r'6f40749bf4b893bad8d73bd7a12ba0dca1ac73ba';
 
 /// See also [UserName].
 @ProviderFor(UserName)
-final userNameProvider = AutoDisposeNotifierProvider<UserName, String>.internal(
+final userNameProvider = NotifierProvider<UserName, String>.internal(
   UserName.new,
   name: r'userNameProvider',
   debugGetCreateSourceHash:
@@ -47,6 +47,6 @@ final userNameProvider = AutoDisposeNotifierProvider<UserName, String>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$UserName = AutoDisposeNotifier<String>;
+typedef _$UserName = Notifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
