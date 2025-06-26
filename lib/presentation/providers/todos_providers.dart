@@ -13,7 +13,7 @@ enum FilterType {
   pending,
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ToDoTypeFilter extends _$ToDoTypeFilter {
   @override
   FilterType build() => FilterType.all;
@@ -22,7 +22,7 @@ class ToDoTypeFilter extends _$ToDoTypeFilter {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ToDos extends _$ToDos {
   @override
   List<Todo> build() => [
@@ -58,10 +58,35 @@ class ToDos extends _$ToDos {
         ),
       ];
 
+  void toggleTodo(String id) {
+    state = state.map((e) {
+      if (e.id == id) {
+        e = e.copyWith(
+          completedAt: e.done ? null : DateTime.now(),
+        );
+      }
+      return e;
+    }).toList();
+  }
+
   void addTodo(String description) {
     state = [
       ...state,
       Todo(id: uuid.v4(), description: description, completedAt: null)
     ];
+  }
+}
+
+@riverpod
+List<Todo> filteredToDo(FilteredToDoRef ref) {
+  final filter = ref.watch(toDoTypeFilterProvider);
+  final todos = ref.watch(toDosProvider);
+  switch (filter) {
+    case FilterType.all:
+      return todos;
+    case FilterType.completed:
+      return todos.where((todo) => todo.done).toList();
+    case FilterType.pending:
+      return todos.where((todo) => !todo.done).toList();
   }
 }

@@ -6,12 +6,26 @@ part of 'todos_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$toDoTypeFilterHash() => r'c1dca455e17b0605e6707f38a208ef15580f6f4b';
+String _$filteredToDoHash() => r'e994b666dab94d4b29f4cfeb8ff87a344c2f67c6';
+
+/// See also [filteredToDo].
+@ProviderFor(filteredToDo)
+final filteredToDoProvider = AutoDisposeProvider<List<Todo>>.internal(
+  filteredToDo,
+  name: r'filteredToDoProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$filteredToDoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FilteredToDoRef = AutoDisposeProviderRef<List<Todo>>;
+String _$toDoTypeFilterHash() => r'58db4032f2260afe98fef8b2cbd22dc219d317ee';
 
 /// See also [ToDoTypeFilter].
 @ProviderFor(ToDoTypeFilter)
 final toDoTypeFilterProvider =
-    AutoDisposeNotifierProvider<ToDoTypeFilter, FilterType>.internal(
+    NotifierProvider<ToDoTypeFilter, FilterType>.internal(
   ToDoTypeFilter.new,
   name: r'toDoTypeFilterProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,12 +35,12 @@ final toDoTypeFilterProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$ToDoTypeFilter = AutoDisposeNotifier<FilterType>;
-String _$toDosHash() => r'ed629db910b4cafacce33a820bf0fe111f436f8d';
+typedef _$ToDoTypeFilter = Notifier<FilterType>;
+String _$toDosHash() => r'a4361c583c904fa5914b8d7d7ced324043df6271';
 
 /// See also [ToDos].
 @ProviderFor(ToDos)
-final toDosProvider = AutoDisposeNotifierProvider<ToDos, List<Todo>>.internal(
+final toDosProvider = NotifierProvider<ToDos, List<Todo>>.internal(
   ToDos.new,
   name: r'toDosProvider',
   debugGetCreateSourceHash:
@@ -35,6 +49,6 @@ final toDosProvider = AutoDisposeNotifierProvider<ToDos, List<Todo>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$ToDos = AutoDisposeNotifier<List<Todo>>;
+typedef _$ToDos = Notifier<List<Todo>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
